@@ -3,19 +3,19 @@ extends ../layout.pug
 block content
   div(class="container mt-5")
     h1(class="mb-5") Publiez votre article
-    form.row.g-3
+    form.row.g-3(method="POST" action="/api/articles")
       .col-md-6
         label.form-label(for="inputNom") Nom
-        input.form-control#inputNom(type="text")
+        input.form-control(type="text" name="Nom")
       .col-md-6
         label.form-label(for="inputPrenom") Prenom
-        input.form-control#inputPrenom(type="text")
+        input.form-control(type="text" name="Prenom")
       .col-md-6
         label.form-label(for="inputSujet") Sujet
-        input.form-control#inputSujet(type="text")
+        input.form-control(type="text" name="Sujet")
       .col-md-4
         label.form-label(for="inputCategorie") Categorie
-        select#inputCategorie.form-select(placeholder="Choose...")
+        select.form-select(name="Categorie")
           option(value="")  Choisir le sujet...
           option(value="Bien-être") Bien-être
           option(value="Cuisine") Cuisine
@@ -23,6 +23,10 @@ block content
           option(value="Culture") Culture
       .col-12
         label.form-label(for="inputContent") Contenu
-        textarea#inputContent(name="Content").form-control(rows="10")
+        textarea.form-control(name="Content")
+      if errors
+            ul(class="my-2")
+              each error in errors
+                li(class="text-danger")= error
       .col-12
-        button.btn.btn-primary(type="submit") Envoyer
+        button.btn.btn-primary(type="submit" value="send") Envoyer

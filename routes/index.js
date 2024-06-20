@@ -1,9 +1,9 @@
 const router = require('express').Router();
+const articles = require('./articles');
+
+router.use('/articles', articles);
 router.get('/', (req, res) => {
-  res.render('articles/article-list');
-});
-router.get('/article/new', (req, res) => {
-  res.render('articles/article-form');
+  res.redirect('/articles');
 });
 
 module.exports = router;
