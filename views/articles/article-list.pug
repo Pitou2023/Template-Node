@@ -1,13 +1,13 @@
 extends ../layout.pug
 
 block content
-  div(class="d-flex flex-row content mx-auto")
-    div(class="profile-container")
+  div(class="d-flex flex-column justify-content-center content mx-auto")
+    div(class="d-flex justify-content-center mb-5")
       include ../includes/profile.pug
-    div(class="card article-element")
-      div(class="card-body")
-        if articles
-          each article in articles
+    div(class="flex-fill d-flex flex-column")
+      if articles
+        each article in articles
+          div(class="card article-element  my-2")
             include ../includes/article.pug
-        else
-          p Aucun article n'a été trouvé.
+      else
+        p Aucun article n'a été trouvé.

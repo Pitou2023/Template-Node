@@ -3,7 +3,7 @@ extends ../layout.pug
 block content
   div(class="container mt-5")
     h1(class="mb-5") Publiez votre article
-    form.row.g-3(method="POST" action="/api/articles")
+    form.row.g-3(method="POST" action="/articles")
       .col-md-6
         label.form-label(for="inputNom") Nom
         input.form-control(type="text" name="Nom")
