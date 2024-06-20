@@ -6,23 +6,21 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
         li.nav-item
-          a.nav-link.active(aria-current='page' href='#') Home
-        li.nav-item
-          a.nav-link(href='#') Link
+          a.nav-link.active(aria-current='page' href='#') Acceuil
+        //- li.nav-item
+        //-   a.nav-link(href='#') Link
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-            | Dropdown
+            | Menu
           ul.dropdown-menu
             li
-              a.dropdown-item(href='#') Action
+              a.dropdown-item(href='/article/new') Nouvel article
             li
-              a.dropdown-item(href='#') Another action
+              a.dropdown-item(href='#') action
             li
-              hr.dropdown-divider
-            li
-              a.dropdown-item(href='#') Something else here
-        li.nav-item
-          a.nav-link.disabled(aria-disabled='true') Disabled
+              a.dropdown-item(href='#') action
+        //- li.nav-item
+        //-   a.nav-link.disabled(aria-disabled='true') Disabled
       form.d-flex(role='search')
         input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
-        button.btn.btn-outline-success(type='submit') Search
+        button.btn.btn-outline-success(type='submit') Chercher
