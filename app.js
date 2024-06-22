@@ -17,4 +17,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(index);
 
+if (process.env.NODE_ENV === 'development') {
+  app.use((err, req, res, next) => {
+    const code = err.code || 500;
+    res.status(code).json({
+      message: code === 500 ? null : err.message,
+    });
+  });
+}
+
 app.listen(port);

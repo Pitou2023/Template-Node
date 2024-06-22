@@ -1,0 +1,9 @@
+extends ../layout.pug
+
+block content
+  script(src="/javascripts/articles/article.js")
+  div(class="d-flex flex-column justify-content-center content mx-auto")
+    div(class="d-flex justify-content-center my-4")
+      include ../includes/profile.pug
+    div(class="flex-fill d-flex flex-column" id="article-list-container")
+      include article-list.pug
