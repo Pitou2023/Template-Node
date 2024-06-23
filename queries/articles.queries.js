@@ -12,3 +12,15 @@ exports.createArticle = (article) => {
 exports.deleteArticle = (articleId) => {
   return Article.findByIdAndDelete(articleId).exec();
 };
+
+exports.getArticle = (articleId) => {
+  return Article.findOne({ _id: articleId }).exec();
+};
+
+exports.updateArticle = (articleId, article) => {
+  return Article.findByIdAndUpdate(
+    articleId,
+    { $set: article },
+    { runValidators: true }
+  );
+};

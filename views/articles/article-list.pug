@@ -10,3 +10,4 @@ if articles
         p= "Contenu : " + article.Content
         p= "Date : " + article.createdAt.toLocaleString()
         button(class="btn btn-danger mt-2 float-end" articleId=article._id) x
+        a(class="btn btn-primary mt-2 float-end mx-2" href="/articles/edit/" + article._id) Editer
