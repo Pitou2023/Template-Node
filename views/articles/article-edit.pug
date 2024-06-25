@@ -2,7 +2,7 @@ extends ../layout.pug
 
 block content
   div(class="container mt-5")
-    h1(class="mb-5") Publiez votre article
+    h1(class="mb-5") Modifiez votre article
     form.row.g-3(method="POST" action= article && article._id ? "/articles/update/" + article._id : "/articles")
       .col-md-6
         label.form-label(for="inputNom") Nom
@@ -31,3 +31,4 @@ block content
       .col-12
         button.btn.btn-primary(type="submit" value="send") Envoyer
         a(href="/articles" class="btn btn-secondary mx-3") Annuler
+

@@ -50,7 +50,7 @@ exports.articleEdit = async (req, res, next) => {
   try {
     const articleId = req.params.articleId;
     const article = await getArticle(articleId);
-    res.render('articles/article-form', { article });
+    res.render('articles/article-edit', { article });
   } catch (err) {
     next(err);
   }

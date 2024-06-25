@@ -11,11 +11,12 @@ const port = process.env.PORT || 3000;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//les middlewares
 app.use(morgan('short'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(index);
+app.use(index); //on passe vers le fichier index.js dans routes
 
 if (process.env.NODE_ENV === 'development') {
   app.use((err, req, res, next) => {
