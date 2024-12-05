@@ -1,0 +1,33 @@
+extends ../layout.pug
+
+block content
+  div(class="container mt-5")
+    h1(class="mb-5") Publiez votre article
+    form.row.g-3(method="POST" action= article && article._id ? "/articles/update/" + article._id : "/articles")
+      .col-md-6
+        label.form-label(for="inputNom") Nom
+        input.form-control(type="text" name="Nom" value= article && article.Nom)
+      .col-md-6
+        label.form-label(for="inputPrenom") Prenom
+        input.form-control(type="text" name="Prenom" value= article && article.Prenom)
+      .col-md-6
+        label.form-label(for="inputSujet") Sujet
+        input.form-control(type="text" name="Sujet" value= article && article.Sujet)
+      .col-md-4
+        label.form-label(for="inputCategorie") Categorie
+        select.form-select(name="Categorie")
+          option(value="" ) Choisir le sujet...
+          option(value="Bien-être" selected=article && article.Categorie === "Bien-être") Bien-être
+          option(value="Cuisine" selected=article && article.Categorie === "Cuisine") Cuisine
+          option(value="Sport" selected=article && article.Categorie === "Sport") Sport
+          option(value="Culture" selected=article && article.Categorie === "Culture") Culture
+      .col-12
+        label.form-label(for="inputContent") Contenu
+        textarea.form-control(name="Content")= article && article.Content
+      if errors
+            ul(class="my-2")
+              each error in errors
+                li(class="text-danger")= error
+      .col-12
+        button.btn.btn-primary(type="submit" value="send") Envoyer
+        a(href="/articles" class="btn btn-secondary mx-3") Annuler
